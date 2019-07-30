@@ -1,0 +1,9 @@
+{
+    "name": "Real time todolist",
+    "version": "0.1.0",
+    "description": "Realtime todolist api",
+    "apidoc": {
+      "title": "real time todolist api",
+      "url" : "http://localhost:3000"
+    }
+  }
