@@ -20,10 +20,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(routeLoggerMiddleware.logIp);
 app.use(globalErrorMiddleware.globalErrorHandler);
-app.use(express.static(path.join(__dirname, 'apidoc1')));
+app.use(express.static(path.join(__dirname, 'apiforsocket')));
+app.get("/socketservice",(req,res)=>{
+  res.sendFile("./index.html",{root: __dirname+"/apiforsocket" })
+})
+app.use(express.static(path.join(__dirname, 'apidoc')));
 
-
-
+app.get("/appservice",(req,res)=>{
+  res.sendFile("./index.html",{root: __dirname+"/apidoc" })
+})
 
 
 const modelsPath = './app/models';
