@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(routeLoggerMiddleware.logIp);
 app.use(globalErrorMiddleware.globalErrorHandler);
+app.use(express.static(path.join(__dirname, 'apidoc1')));
 
-app.use(express.static(path.join(__dirname, 'client')));
 
 
 
@@ -54,6 +54,7 @@ fs.readdirSync(routesPath).forEach(function (file) {
   }
 });
 // end bootstrap route
+
 
 
 // calling global 404 handler after route

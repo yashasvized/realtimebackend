@@ -40,6 +40,17 @@ module.exports.setRouter = (app) => {
 
     app.post(`${baseUrl}/getallaction`,friendactions.geteveryfriendactions)
 
+    var path = require('path');
+
+    var path = require('path');
+    var filePath = "./apidoc/index.html"
+    var resolvedPath = path.resolve(filePath);
+    console.log(resolvedPath);
+
+    app.get(`${baseUrl}/apidoc`,(req,res)=>{
+        res.sendFile(resolvedPath);
+    })
+
 
      /**
      * @apiGroup friendaction
