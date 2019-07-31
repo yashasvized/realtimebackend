@@ -131,12 +131,12 @@ let setServer = (server) => {
     */
         socket.on('post-msg', (data) => {
             console.log("socket post-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"1",data)
                 console.log(data.friends[i].friendId+"1");
             }         
-
+        }
         });
 
                       /**
@@ -148,12 +148,12 @@ let setServer = (server) => {
 
         socket.on('check-msg', (data) => {
             console.log("socket check-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"7",data)
                 console.log(data.friends[i].friendId+"7");
             }         
-
+        }
         });
 
                       /**
@@ -164,12 +164,12 @@ let setServer = (server) => {
     */
         socket.on('checksub-msg', (data) => {
             console.log("socket check-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"8",data)
                 console.log(data.friends[i].friendId+"7");
             }         
-
+        }
         });
 
                       /**
@@ -179,12 +179,12 @@ let setServer = (server) => {
      * @apiDescription Used when someone delete list in Id so that other users can see it in realtime
     */
         socket.on('del-msg', (data) => {
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             console.log("socket del-msg called")
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"2",data)
             }         
-
+        }
         });
 
                       /**
@@ -209,11 +209,11 @@ let setServer = (server) => {
     */
         socket.on('sub-msg', (data) => {
             console.log("socket sub-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"4",data)
             }         
-
+        }
         });
 
 
@@ -225,11 +225,11 @@ let setServer = (server) => {
     */
         socket.on('delsub-msg', (data) => {
             console.log("socket sub-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"5",data)
             }         
-
+        }
         });
 
                               /**
@@ -240,11 +240,11 @@ let setServer = (server) => {
     */
         socket.on('editsub-msg', (data) => {
             console.log("socket delsub-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"6",data)
             }         
-
+        }
         });
 
                                     /**
