@@ -195,11 +195,11 @@ let setServer = (server) => {
     */
         socket.on('update-msg', (data) => {
             console.log("socket update-msg called")
-            if(data.friends!==null)
+            if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"3",data)
             }         
-
+        }
         });
                       /**
      * @apiGroup sockets
