@@ -52,6 +52,8 @@ module.exports.setRouter = (app) => {
     })
 
 
+    app.post(`${baseUrl}/removeaction`,friendactions.deletefriendactions)
+
      /**
      * @apiGroup friendaction
      * @apiVersion  1.0.0

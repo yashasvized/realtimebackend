@@ -243,6 +243,7 @@ let setServer = (server) => {
             if(data.friends!==undefined){
             for(let i = 0;i<data.friends.length;i++){
                 myIo.emit(data.friends[i].friendId+"6",data)
+                console.log(data.friends[i].friendId);
             }         
         }
         });

@@ -129,8 +129,33 @@ let geteveryfriendactions = (req, res) => {
         })
 }// end get all users
 
+let deletefriendactions = (req, res) => {
+    console.log(req.body.userId)
+    friendaction.findOneAndDelete({userId: req.body.userId,previousValue:req.body.previousValue})
+        .select(' -__v -_id ')
+        .lean()
+        .sort({createdOn:-1})
+        .exec((err, result) => {
+            if (err) {
+                console.log(err)
+                logger.error(err.message, 'friendaction Controller: geteveryfriendactions', 10)
+                let apiResponse = response.generate(true, 'Failed To Find User Details', 500, null)
+                res.send(apiResponse)
+            } else if (check.isEmpty(result)) {
+                logger.info('No User Found', 'friendaction Controller: geteveryfriendactions')
+                let apiResponse = response.generate(true, 'No User Found', 404, null)
+                res.send(apiResponse)
+            } else {
+                let apiResponse = response.generate(false, 'friend action Found', 200, result)
+               
+                res.send(apiResponse)
+            }
+        })
+}// end get all users
+
 module.exports = {
     createfriendaction:createfriendaction,
     getAllfriendactions:getAllfriendactions,
-    geteveryfriendactions:geteveryfriendactions
+    geteveryfriendactions:geteveryfriendactions,
+    deletefriendactions:deletefriendactions
 }
