@@ -298,8 +298,8 @@ let forgetPassword = (req,res)=>{
               port: 465,
               secure: true,
                  auth: {
-                   user: "pasbolayashu@gmail.com", // generated ethereal user
-                   pass: "9953636274" // generated ethereal password
+                   user: "yashzed123@gmail.com", // generated ethereal user
+                   pass: "a12345678@" // generated ethereal password
                  }
                });
                  const emailToken = jwt.sign({
@@ -313,7 +313,7 @@ let forgetPassword = (req,res)=>{
                     
                   // send mail with defined transport object
                   let info={
-                    from: 'pasbolayashu@gmail.com', // sender address
+                    from: 'yashzed123@gmail.com', // sender address
                     to: resolve.email, // list of receivers
                     subject: "Confirmation to change your password", // Subject line
                     text: "Click on the link below to update your password", // plain text body
