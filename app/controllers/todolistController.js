@@ -35,9 +35,15 @@ let todoListCreation = (req, res) => {
     }// end validate user input
     let createList = () => {
         return new Promise((resolve, reject) => {
-           
+            let a;
+                            if(req.body.listy!==null){
+                                    a= req.body.listy
+                            }
+                            else{
+                                a=shortid.generate()
+                            }
                         let newUser = new todolistModel({
-                            listId: shortid.generate(),
+                            listId: a,
                             userId: req.body.userId,
                             title: req.body.title,
                             subitem:req.body.subitem,
