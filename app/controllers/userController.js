@@ -246,7 +246,7 @@ let updatePassword = (req,res)=>{
             console.log(err)
         }else{
             console.log(result);
-            res.redirect("http://localhost:4200")
+            res.redirect("http://tropp.site")
         }
     });
 
