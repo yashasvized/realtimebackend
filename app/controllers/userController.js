@@ -308,7 +308,7 @@ let forgetPassword = (req,res)=>{
                  },"yashasvi",{
                      expiresIn:'1d'
                  },(err,emailToken)=>{
-                    const url = `http://localhost:3000/confirmation/${emailToken}`;
+                    const url = `http://api.tropp.site/confirmation/${emailToken}`;
 
                     
                   // send mail with defined transport object
